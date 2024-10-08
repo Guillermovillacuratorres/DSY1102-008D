@@ -31,9 +31,6 @@ public class Animal {
         return "Animal{" + "nombre=" + nombre + '}';
     }
     
-    public void hacerSonido(){
-        System.out.println("Haciendo un sonido");
-    }
 
     
     
