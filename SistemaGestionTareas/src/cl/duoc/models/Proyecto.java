@@ -62,4 +62,10 @@ public class Proyecto {
                     );
         }
     }
+    
+    public List<Task> obtenerListadoTareas(){
+        return new ArrayList<>(tareas);
+    }
+    
+    
 }
