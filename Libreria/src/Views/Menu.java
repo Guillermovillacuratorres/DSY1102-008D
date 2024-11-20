@@ -114,11 +114,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_mniAgregarActionPerformed
 
     private void mniEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEditarActionPerformed
-        // TODO add your handling code here:
+        Editarlibro l = new Editarlibro();
+        l.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_mniEditarActionPerformed
 
     private void mniEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEliminarActionPerformed
-        // TODO add your handling code here:
+        EliminarLibro l = new EliminarLibro();
+        l.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_mniEliminarActionPerformed
 
     private void mniListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListarActionPerformed

@@ -8,21 +8,18 @@ package Models;
  *
  * @author Cetecom
  */
-public class Libro {
+public class Categoria {
+    
     private int id;
     private String nombre;
-    private int idcategoria;
-    
 
-    public Libro() {
+    public Categoria() {
     }
 
-    public Libro(int id, String nombre, int idcategoria) {
+    public Categoria(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.idcategoria = idcategoria;
     }
-
 
     public int getId() {
         return id;
@@ -40,22 +37,10 @@ public class Libro {
         this.nombre = nombre;
     }
 
-    public int getIdcategoria() {
-        return idcategoria;
-    }
-
-    public void setIdcategoria(int idcategoria) {
-        this.idcategoria = idcategoria;
-    }
-
     @Override
     public String toString() {
-        return "Libro{" + "id=" + id + ", nombre=" + nombre + ", idcategoria=" + idcategoria + '}';
+        return "Categoria{" + "id=" + id + ", nombre=" + nombre + '}';
     }
-    
-    
-
-
     
     
 }

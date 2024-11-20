@@ -24,11 +24,14 @@ public class Libreria {
         
         
         LibroController lc = new LibroController();
-        System.out.println(lc.obtenerLibros());
+        //System.out.println(lc.obtenerLibros());
         
         
         Menu m = new Menu();
         m.setVisible(true);
+        
+        
+        System.out.println(lc.buscarLibropoId(5));
     }
     
 }

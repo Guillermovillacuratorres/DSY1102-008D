@@ -4,7 +4,9 @@
  */
 package Views;
 
+import Controller.CategoriaController;
 import Controller.LibroController;
+import Models.Categoria;
 import Models.Libro;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,13 +15,15 @@ import javax.swing.table.DefaultTableModel;
  * @author Cetecom
  */
 public class ListarLibros extends javax.swing.JFrame {
-
+    private int idSeleccionadoFiltroCategoria = 1;
+    
     /**
      * Creates new form ListarLibros
      */
-    public ListarLibros() {
+    public ListarLibros() { 
         initComponents();
         llenarTabla();
+        cargarCombo();
     }
 
     /**
@@ -35,22 +39,24 @@ public class ListarLibros extends javax.swing.JFrame {
         tblListadoLibros = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        cmbFiltroCategoria = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tblListadoLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID", "TITULO"
+                "ID", "TITULO", "ID CATEGORIA"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -69,29 +75,49 @@ public class ListarLibros extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Filtro categoria:");
+
+        cmbFiltroCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                filtroCategoria(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnVolver)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(102, 102, 102)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(429, 429, 429)
+                            .addComponent(btnVolver)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbFiltroCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cmbFiltroCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(btnVolver)
-                .addGap(59, 59, 59))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -102,6 +128,21 @@ public class ListarLibros extends javax.swing.JFrame {
         m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void filtroCategoria(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filtroCategoria
+        if(evt.getStateChange() == evt.SELECTED){
+            //System.out.println(evt.getItem());
+            
+            String itemSeleccionado = (String) evt.getItem();
+            
+            String[] partesItem = itemSeleccionado.split(" - ");
+            int id = Integer.parseInt(partesItem[0]);
+            //System.out.println(id);
+            
+            idSeleccionadoFiltroCategoria = id;
+            llenarTabla();
+        }
+    }//GEN-LAST:event_filtroCategoria
 
     /**
      * @param args the command line arguments
@@ -145,17 +186,28 @@ public class ListarLibros extends javax.swing.JFrame {
         modelo.setRowCount(0);
         
         LibroController lc = new LibroController();
-        for(Libro i : lc.obtenerLibros()){
+        for(Libro i : lc.obtenerLibros(idSeleccionadoFiltroCategoria)){
             modelo.addRow(new Object[]{
                 i.getId(),
-                i.getNombre()
+                i.getNombre(),
+                i.getIdcategoria()
             });
+        }
+    }
+    
+    
+    private void cargarCombo(){
+        CategoriaController cc = new CategoriaController();
+        for(Categoria i : cc.obtenerCategoria()){
+            cmbFiltroCategoria.addItem(i.getId() + " - " + i.getNombre() );
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
+    private javax.swing.JComboBox<String> cmbFiltroCategoria;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblListadoLibros;
     // End of variables declaration//GEN-END:variables

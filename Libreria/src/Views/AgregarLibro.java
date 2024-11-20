@@ -4,19 +4,22 @@
  */
 package Views;
 
+import Controller.CategoriaController;
 import Controller.LibroController;
+import Models.Categoria;
 
 /**
  *
  * @author Cetecom
  */
 public class AgregarLibro extends javax.swing.JFrame {
-
+private int idSeleccionadoFiltroCategoria = 0;
     /**
      * Creates new form AgregarLibro
      */
     public AgregarLibro() {
         initComponents();
+        cargarCombo();
     }
 
     /**
@@ -33,6 +36,8 @@ public class AgregarLibro extends javax.swing.JFrame {
         txtitulo = new javax.swing.JTextField();
         btnAgregarLibro = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        cmbFiltroCategoria = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,26 +60,42 @@ public class AgregarLibro extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setText("Categoria:");
+
+        cmbFiltroCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                idCategoria(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(171, 171, 171))
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAgregarLibro))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbFiltroCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(171, 171, 171))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAgregarLibro)
+                        .addGap(72, 72, 72))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,11 +106,15 @@ public class AgregarLibro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cmbFiltroCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnAgregarLibro))
-                .addGap(57, 57, 57))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
@@ -97,7 +122,13 @@ public class AgregarLibro extends javax.swing.JFrame {
 
     private void btnAgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarLibroActionPerformed
         Controller.LibroController lc = new LibroController();
-        lc.agregarLibro(txtitulo.getText());
+        
+        
+        
+        
+    lc.agregarLibro(
+    txtitulo.getText(), 
+    idSeleccionadoFiltroCategoria);
     }//GEN-LAST:event_btnAgregarLibroActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -106,6 +137,27 @@ public class AgregarLibro extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void idCategoria(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_idCategoria
+        if(evt.getStateChange() == evt.SELECTED){
+            //System.out.println(evt.getItem());
+            
+            String itemSeleccionado = (String) evt.getItem();
+            
+            String[] partesItem = itemSeleccionado.split(" - ");
+            int id = Integer.parseInt(partesItem[0]);
+            //System.out.println(id);
+            
+            idSeleccionadoFiltroCategoria = id;
+            
+        }
+    }//GEN-LAST:event_idCategoria
+
+        private void cargarCombo(){
+        CategoriaController cc = new CategoriaController();
+        for(Categoria i : cc.obtenerCategoria()){
+            cmbFiltroCategoria.addItem(i.getId() + " - " + i.getNombre() );
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -144,8 +196,10 @@ public class AgregarLibro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarLibro;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JComboBox<String> cmbFiltroCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtitulo;
     // End of variables declaration//GEN-END:variables
 }
