@@ -6,7 +6,7 @@ package gestionpersonas;
 
 /**
  *
- * @author Guillermo Villacura
+ * @author Diego Alarcon
  */
 public class Persona {
     private String nombre;
@@ -16,6 +16,7 @@ public class Persona {
 
     public Persona() {
     }
+    
 
     public Persona(String nombre, int edad, double altura, boolean casado) {
         this.nombre = nombre;
@@ -62,4 +63,6 @@ public class Persona {
     }
     
     
+    
 }
+
