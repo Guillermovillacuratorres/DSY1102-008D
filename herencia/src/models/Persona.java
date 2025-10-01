@@ -75,4 +75,8 @@ public class Persona {
         System.out.println("Este es tu horario!  ---->  lunes = nada");
     }
     
+    
+    public void saludar(){
+        System.out.println("Hoooolaaaa!");
+    }
 }

@@ -44,5 +44,11 @@ public class Docente extends Persona{
     }
     
     
+    @Override
+    public void saludar(){
+        System.out.println("Hooola soy un profe!!!"); 
+    }
+    
+    
     
 }

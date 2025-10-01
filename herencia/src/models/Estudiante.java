@@ -42,6 +42,17 @@ public class Estudiante extends Persona{
         super.horario();
     }
     
+    public int sumar(){
+        return 10 + 10;
+    }
     
+    public int sumar(int n1, int n2){
+        return n1 + n2;
+    }
+    
+    @Override
+    public void saludar(){
+        System.out.println("Hooola soy un estudiante");
+    }
     
 }
