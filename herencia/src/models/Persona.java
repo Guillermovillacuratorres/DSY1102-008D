@@ -11,19 +11,19 @@ import java.time.LocalDate;
  * @author Cetecom
  */
 public class Persona {
-    protected String nombre, genero,rut;
+    protected String nombre, rut,correo, telefono, direccion;
     protected int edad;
-    protected LocalDate fechaNacimiento;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String genero, String rut, int edad, LocalDate fechaNacimiento) {
+    public Persona(String nombre, String rut, String correo, String telefono, String direccion, int edad) {
         this.nombre = nombre;
-        this.genero = genero;
         this.rut = rut;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.direccion = direccion;
         this.edad = edad;
-        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNombre() {
@@ -34,20 +34,36 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
     public String getRut() {
         return rut;
     }
 
     public void setRut(String rut) {
         this.rut = rut;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public int getEdad() {
@@ -58,25 +74,21 @@ public class Persona {
         this.edad = edad;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", genero=" + genero + ", rut=" + rut + ", edad=" + edad + ", fechaNacimiento=" + fechaNacimiento + '}';
-    }
-    
-    public void horario(){
-        System.out.println("Este es tu horario!  ---->  lunes = nada");
+        return "Persona{" + "nombre=" + nombre + ", rut=" + rut + ", correo=" + correo + ", telefono=" + telefono + ", direccion=" + direccion + ", edad=" + edad + '}';
     }
     
     
     public void saludar(){
-        System.out.println("Hoooolaaaa!");
+        System.out.println("Hoooola" + nombre);
     }
+    
+    
+    public int sumar(int x, int y){
+        return x + y;
+    }
+    
+  
+    
 }

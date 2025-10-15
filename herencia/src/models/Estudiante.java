@@ -4,55 +4,43 @@
  */
 package models;
 
-import java.time.LocalDate;
-
 /**
  *
  * @author Cetecom
  */
 public class Estudiante extends Persona{
-    private double promedioNotas;
+    private String nombreCarrera;
 
     public Estudiante() {
     }
 
-    public Estudiante(double promedioNotas) {
-        this.promedioNotas = promedioNotas;
+    public Estudiante(String nombreCarrera) {
+        this.nombreCarrera = nombreCarrera;
     }
 
-    public Estudiante(double promedioNotas, String nombre, String genero, String rut, int edad, LocalDate fechaNacimiento) {
-        super(nombre, genero, rut, edad, fechaNacimiento);
-        this.promedioNotas = promedioNotas;
+    public Estudiante(String nombreCarrera, String nombre, String rut, String correo, String telefono, String direccion, int edad) {
+        super(nombre, rut, correo, telefono, direccion, edad);
+        this.nombreCarrera = nombreCarrera;
     }
 
-    public double getPromedioNotas() {
-        return promedioNotas;
+    public String getNombreCarrera() {
+        return nombreCarrera;
     }
 
-    public void setPromedioNotas(double promedioNotas) {
-        this.promedioNotas = promedioNotas;
+    public void setNombreCarrera(String nombreCarrera) {
+        this.nombreCarrera = nombreCarrera;
     }
 
     @Override
     public String toString() {
-        return "NOMBRE: " + super.nombre + " Edad: " + super.edad;
-    }
-
-    public void mostrarHorario(){
-        super.horario();
+        return "Estudiante{" + "nombreCarrera=" + nombreCarrera + '}';
     }
     
-    public int sumar(){
-        return 10 + 10;
-    }
     
-    public int sumar(int n1, int n2){
-        return n1 + n2;
-    }
     
-    @Override
+        @Override
     public void saludar(){
-        System.out.println("Hooola soy un estudiante");
+        System.out.println("Hola soy un estudiante");
     }
     
 }
