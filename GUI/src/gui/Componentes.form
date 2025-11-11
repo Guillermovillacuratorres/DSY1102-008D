@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="rbtnGrupoColor">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -23,27 +27,52 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
+              <Component id="lblTitulo" min="-2" pref="245" max="-2" attributes="0"/>
+              <EmptySpace pref="268" max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="cbxJugar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="cbxEstudiar" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblNombre" min="-2" pref="78" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtNombre" min="-2" pref="144" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="lblComentario" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="cboJuegos" min="-2" pref="148" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="rdbRojo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="rdbVerde" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="lblNombre" min="-2" pref="78" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtNombre" min="-2" pref="144" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
-                      <Component id="lblTitulo" min="-2" pref="245" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="268" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,11 +82,28 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="lblTitulo" min="-2" pref="51" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblComentario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cbxJugar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbxEstudiar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="201" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cboJuegos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdbRojo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdbVerde" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="67" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnVolver" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -101,6 +147,67 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aceptar"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cbxJugar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Jugar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="cbxEstudiar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Estudiar"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="txtaComentario">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="lblComentario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comentarios:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cboJuegos">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rdbRojo">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="rbtnGrupoColor"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Rojo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rdbVerde">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="rbtnGrupoColor"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Verde"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

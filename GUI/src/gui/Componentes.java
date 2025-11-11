@@ -17,6 +17,12 @@ public class Componentes extends javax.swing.JFrame {
         initComponents();
         //setLocation(350,100);
         setLocationRelativeTo(null);
+        cbxJugar.setSelected(true);
+        cargarComboJuegos();
+        rdbRojo.setSelected(true);
+        
+        rdbRojo.setActionCommand("Rojo");
+        rdbVerde.setActionCommand("Verde");
     }
 
     /**
@@ -28,11 +34,20 @@ public class Componentes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rbtnGrupoColor = new javax.swing.ButtonGroup();
         btnVolver = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
+        cbxJugar = new javax.swing.JCheckBox();
+        cbxEstudiar = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtaComentario = new javax.swing.JTextArea();
+        lblComentario = new javax.swing.JLabel();
+        cboJuegos = new javax.swing.JComboBox<>();
+        rdbRojo = new javax.swing.JRadioButton();
+        rdbVerde = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,27 +71,64 @@ public class Componentes extends javax.swing.JFrame {
             }
         });
 
+        cbxJugar.setText("Jugar");
+
+        cbxEstudiar.setText("Estudiar");
+
+        txtaComentario.setColumns(20);
+        txtaComentario.setRows(5);
+        jScrollPane1.setViewportView(txtaComentario);
+
+        lblComentario.setText("Comentarios:");
+
+        cboJuegos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        rbtnGrupoColor.add(rdbRojo);
+        rdbRojo.setText("Rojo");
+
+        rbtnGrupoColor.add(rdbVerde);
+        rdbVerde.setText("Verde");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(249, 249, 249)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(268, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAceptar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAceptar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cbxJugar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbxEstudiar))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblComentario)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cboJuegos, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rdbRojo)
+                                .addGap(18, 18, 18)
+                                .addComponent(rdbVerde)
+                                .addGap(65, 65, 65)))))
                 .addGap(18, 18, 18)
                 .addComponent(btnVolver)
                 .addGap(19, 19, 19))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(268, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,10 +136,23 @@ public class Componentes extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNombre)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblComentario))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbxJugar)
+                            .addComponent(cbxEstudiar)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                    .addComponent(cboJuegos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rdbRojo)
+                    .addComponent(rdbVerde))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVolver)
                     .addComponent(btnAceptar))
@@ -107,8 +172,21 @@ public class Componentes extends javax.swing.JFrame {
     private void aceptar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptar
         // TODO add your handling code here:
         System.out.println("Valor nombre: " + txtNombre.getText());
+        System.out.println("Valor checkBox Jugar: " + cbxJugar.isSelected());
+        System.out.println("Valor checkBox Estudiar: " + cbxEstudiar.isSelected());
+        System.out.println("Valor text area: " + txtaComentario.getText());
+        System.out.println("Valor comboBox: " + cboJuegos.getSelectedItem());
+        System.out.println("Valor radio button: " + rbtnGrupoColor.getSelection().getActionCommand());
     }//GEN-LAST:event_aceptar
 
+    void cargarComboJuegos(){
+        cboJuegos.removeAllItems();
+        String[] opcionJuegos = {"Counter strike", "Valorant", "Fifa", "Pac man" , "Call of duty", "Pubg", "league of legends"};
+        for(String i : opcionJuegos){
+            cboJuegos.addItem(i);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -147,8 +225,17 @@ public class Componentes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JComboBox<String> cboJuegos;
+    private javax.swing.JCheckBox cbxEstudiar;
+    private javax.swing.JCheckBox cbxJugar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblComentario;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.ButtonGroup rbtnGrupoColor;
+    private javax.swing.JRadioButton rdbRojo;
+    private javax.swing.JRadioButton rdbVerde;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextArea txtaComentario;
     // End of variables declaration//GEN-END:variables
 }
