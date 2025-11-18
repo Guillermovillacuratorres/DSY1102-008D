@@ -4,6 +4,7 @@
  */
 package controller;
 
+import helper.Helper;
 import java.util.ArrayList;
 import models.Persona;
 
@@ -13,6 +14,9 @@ import models.Persona;
  */
 public class PersonaController {
     private static ArrayList<Persona> personas = new ArrayList();
+    
+    Helper h = new Helper();
+            
     
     public void agregarPersona(Persona p){
         personas.add(p);
@@ -32,5 +36,37 @@ public class PersonaController {
     public ArrayList<Persona> listarPersonas(){
         return personas;
     } 
+    
+    public Persona buscarPersona(String rut){
+        for(Persona p : personas){
+            if(p.getRut().equals(rut)){
+                return p;
+            }
+        }
+        return null;
+    }
+    
+    public void editarPersona(Persona p){
+        Persona personaEncontrada = buscarPersona(p.getRut());
+        
+        if(personaEncontrada != null){
+            personaEncontrada.setNombre(p.getNombre());
+            personaEncontrada.setEdad(p.getEdad());
+            System.out.println("Persona actualizada!");
+        }else{
+            System.out.println("Persona no encontrada!");
+        }
+    }
+    
+    public void eliminarPersona(String rut){
+        Persona personaEncontrada = buscarPersona(rut);
+        
+        if(personaEncontrada != null){
+            personas.remove(personaEncontrada);
+        }else{
+            //System.out.println("Persona no encontrada!");
+            h.showError("Persona no encontrada");
+        }
+    }
     
 }
