@@ -1,0 +1,5 @@
+CREATE TABLE `automotora`.`vehiculo` (`patente` VARCHAR(6) NOT NULL , `marca` VARCHAR(30) NULL DEFAULT NULL , `modelo` VARCHAR(30) NULL DEFAULT 'No hay modelo' , `fecha` DATETIME NULL DEFAULT CURRENT_TIMESTAMP , `anio` INT NULL DEFAULT NULL , PRIMARY KEY (`patente`(6))) ENGINE = InnoDB;
+
+
+
+INSERT INTO `vehiculo` (`patente`, `marca`, `modelo`, `fecha`, `anio`) VALUES ('qwer11', 'Toyota', 'Supra', '2025-11-19 11:50:42', '1999'), ('asdf44', 'Chevrolet', 'Corsa', '2025-11-19 11:50:42', '2001');
